@@ -32,3 +32,15 @@ function checkCollision() {
     moveTarget();
   }
 }
+function moveTarget() {
+  const x = Math.floor(Math.random() * (window.innerWidth - playerSize));
+  const y = Math.floor(Math.random() * (window.innerHeight - playerSize));
+  target.style.left = y + "px";
+  target.style.top = x + "px";
+}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowUp") movePlayer(posX, posY - step);
+  if (e.key === "ArrowDown") movePlayer(posX, posY + step);
+  if (e.key === "ArrowLeft") movePlayer(posX - step, posY);
+  if (e.key === "ArrowRight") movePlayer(posX + step, posY);
+});
