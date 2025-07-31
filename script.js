@@ -5,6 +5,8 @@ const scoreEl = document.getElementById("score");
 
 //Vi lager variabler.
 let score = 0;
+let highScore = 0;
+const highScoreEl = document.getElementById("highscore");
 let posX = 100;
 let posY = 100;
 const step = 20;
@@ -39,6 +41,10 @@ function checkCollision() {
   //Hvis det er treff:Øk poengsummen,Flytt målet til ny tilfeldig plass.
   if (overlap) {
     score++;
+    if (score > highScore) {
+      highScore = score;
+      highScoreEl.textContent = "🏆 High Score: " + highScore;
+    }
     scoreEl.textContent = score;
     moveTarget();
   }

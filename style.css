@@ -12,6 +12,16 @@ p {
   text-align: center;
   margin: 10px 0;
 }
+#highscore {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
 
 #player,
 #target {
