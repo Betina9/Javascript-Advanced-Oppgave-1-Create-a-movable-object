@@ -20,7 +20,7 @@ function movePlayer(x, y) {
   posY = Math.max(0, Math.min(y, maxY));
   //Flytter spilleren på skjermen ved å oppdatere left og top.
   player.style.left = posX + "px";
-  player.style.left = posY + "px";
+  player.style.top = posY + "px";
   //Etter at spilleren er flyttet, sjekker vi om den kolliderer med målet.
   checkCollision();
 }
@@ -43,13 +43,12 @@ function checkCollision() {
     moveTarget();
   }
 }
-
 //Flytter målet til en tilfeldig plass på skjermen.
 function moveTarget() {
   const x = Math.floor(Math.random() * (window.innerWidth - playerSize));
   const y = Math.floor(Math.random() * (window.innerHeight - playerSize));
-  target.style.left = y + "px";
-  target.style.top = x + "px";
+  target.style.left = x + "px";
+  target.style.top = y + "px";
 }
 
 //Brukeren kan styre spilleren med piltastene.

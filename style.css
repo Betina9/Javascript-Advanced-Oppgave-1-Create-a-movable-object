@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #f0f8ff;
+  font-family: sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+h1,
+p {
+  text-align: center;
+  margin: 10px 0;
+}
+
+#player,
+#target {
+  position: absolute;
+  font-size: 40px;
+}
+
+#player {
+  top: 100px;
+  left: 100px;
+  transition: top 0.05s, left 0.05s;
+}
+
+#target {
+  top: 300px;
+  left: 300px;
+}
