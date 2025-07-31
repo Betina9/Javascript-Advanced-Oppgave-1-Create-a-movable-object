@@ -69,3 +69,32 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener("click", (e) => {
   movePlayer(e.clientX, e.clientY);
 });
+
+let time = 0;
+const timerEl = document.getElementById("timer");
+
+// Start timer
+setInterval(() => {
+  time++;
+  timerEl.textContent = `⏱️ Tid: ${time} sek`;
+}, 1000);
+
+const restartBtn = document.getElementById("restart-btn");
+
+function restartGame() {
+  // Nullstill posisjon
+  posX = 100;
+  posY = 100;
+  movePlayer(posX, posY);
+
+  // Nullstill score og timer
+  score = 0;
+  scoreEl.textContent = score;
+  startTime = Date.now();
+  updateTimer();
+
+  // Flytt målet til ny plass
+  moveTarget();
+}
+
+restartBtn.addEventListener("click", restartGame);

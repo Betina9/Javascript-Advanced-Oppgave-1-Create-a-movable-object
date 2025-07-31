@@ -5,6 +5,7 @@ body {
   font-family: sans-serif;
   overflow: hidden;
   position: relative;
+  background-color: hsl(160, 50%, 90%);
 }
 
 h1,
@@ -23,6 +24,17 @@ p {
   border-radius: 8px;
 }
 
+#timer {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
 #player,
 #target {
   position: absolute;
@@ -33,9 +45,47 @@ p {
   top: 100px;
   left: 100px;
   transition: top 0.05s, left 0.05s;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.35); /* DarkOrange */
+  border-radius: 10px;
+  animation: bounce 0.4s ease;
 }
 
 #target {
   top: 300px;
   left: 300px;
+  box-shadow: 0 6px 18px rgba(30, 144, 255, 0.3); /* DodgerBlue med gjennomsiktighet */
+  border-radius: 50%;
+  animation: fishSwim 1.5s ease-in-out infinite;
+}
+
+#player:hover,
+#target:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* mørkere og større skygge */
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes fishSwim {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+#restart-btn {
+  padding: 8px 16px;
+  background-color: hsl(220, 80%, 60%);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+#restart-btn:hover {
+  transform: scale(1.05);
 }
