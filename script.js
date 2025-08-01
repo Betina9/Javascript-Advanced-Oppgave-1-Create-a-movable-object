@@ -98,3 +98,59 @@ function restartGame() {
 }
 
 restartBtn.addEventListener("click", restartGame);
+
+let score = 0;
+let highScore = 0;
+let startTime = Date.now();
+let timerInterval;
+
+const scoreEl = document.getElementById("score");
+const highScoreEl = document.getElementById("highscore");
+const timerEl = document.getElementById("timer");
+const restartBtn = document.getElementById("restart-btn");
+
+// Timer
+function updateTimer() {
+  const now = Date.now();
+  const seconds = Math.floor((now - startTime) / 1000);
+  timerEl.textContent = `⏱ ${seconds}s`;
+}
+
+// Start timer
+function startTimer() {
+  clearInterval(timerInterval); // stop any running timer
+  startTime = Date.now();
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+// Kjør dette én gang ved oppstart
+startTimer();
+
+// Oppdater score
+function updateScore() {
+  scoreEl.textContent = `Score: ${score}`;
+  if (score > highScore) {
+    highScore = score;
+    highScoreEl.textContent = `🏆 High Score: ${highScore}`;
+  }
+}
+
+// Når mål treffes:
+function increaseScore() {
+  score++;
+  updateScore();
+}
+
+// Restart-funksjon
+function restartGame() {
+  score = 0;
+  updateScore();
+  startTimer();
+
+  posX = 100;
+  posY = 100;
+  movePlayer(posX, posY);
+  moveTarget();
+}
+
+restartBtn.addEventListener("click", restartGame);
